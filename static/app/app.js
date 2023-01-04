@@ -1,12 +1,13 @@
 const myLibrary = []
 const Display = document.querySelector('.display')
-const BookContainer = document.getElementById('book')
+const FormContainer = document.querySelector('.form-container')
 const AddingNewBook = document.getElementById('add-new')
 const Form = document.getElementById('addBooks')
 // Hiding the input--
-BookContainer.style.display = 'none'
+
+FormContainer.style.display = 'none'
 AddingNewBook.addEventListener('click', () => {
-  BookContainer.style.display = 'block'
+  FormContainer.style.display = 'block'
 })
 // --
 
@@ -30,9 +31,13 @@ function DisplayingBooks () {
       const Container = document.createElement('div')
       Container.classList.add('card')
       const title = document.createElement('h1')
-      const author = document.createElement('h4')
+      title.classList.add('h1-of-book-collection')
+      const author = document.createElement('h3')
+      author.classList.add('h3-of-book-collection')
       const pages = document.createElement('p')
+      pages.classList.add('p-of-book-collection')
       const read = document.createElement('input')
+      read.classList.add('read-of-book-collection')
       read.setAttribute('type', 'checkbox')
 
       title.textContent += myLibrary[i].title
@@ -64,7 +69,7 @@ function addBookToLibrary () {
   if (Title !== '' || Author !== '' || Pages !== '') {
     myLibrary.push(new Book(Title, Author, Pages, Read))
 
-    BookContainer.style.display = 'none'
+    FormContainer.style.display = 'none'
   } else {
     console.log('No!')
   }

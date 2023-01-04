@@ -9,11 +9,9 @@
     <script src="static/app/app.js" defer></script>
   </head>
   <body>
-    <div class="new">
-      <button id="add-new"> +</button>
-    </div>
-    <div id="book">
-      <form class="add-books" id="addBooks">
+    <div class="form-container">
+      <div id="book">
+        <form class="add-books" id="addBooks">
         <h3>Add New Book</h3>
         <input
           class="input"
@@ -45,10 +43,16 @@
           <input class="checkbox" type="checkbox" id="isRead" />
         </div>
         <button class="submit">Add</button>
-      </form>
+        </form>
+      </div>
+    </div>
+    <div class="Book-Containers-Box">
+      <div class="new">
+        <button id="add-new"> +</button>
+      </div>
+      <div class="display"></div>
+      
     </div>
 
-
-    <div class="display"></div>
   </body>
 </html>
