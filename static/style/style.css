@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+input{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+h3{
+    font-size: 30px;
+
+}
+
+#add-new{
+    width: 200px;
+    height: 280px;
+    font-size: 95px;
+    border: none;
+    border-radius: 10px;
+    background-color: hsla(0, 0%, 55%, 0.452);
+    color: #fff;
+}
+#add-new:hover{
+    opacity: 0.7;
+    
+}
+#book{
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    padding: 18px;
+    background-color: hsl(180, 100%, 38%);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border-radius: 30px;
+    transition: all 0.25s;  
+
+}
+
+
+#book > form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;   
+    padding: 15px;
+    margin-top: 15px;
+
+}
+#book > form > input[type='text']{
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+#book > form > input[type='number']{
+    width: 100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#book > form > button{
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    background-color: hsl(29, 100%, 50%);
+    color: #fff;
+
+}
+
+#book > form > button:hover{
+    background-color: #fff;
+    color: hsl(29, 100%, 50%);
+    transition: 0.35s all;
+    
+}
