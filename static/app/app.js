@@ -55,10 +55,12 @@ function DisplayingBooks () {
       if (myLibrary[parseInt(retriveRead)].read === true) {
         toggleBook.read = false
         read.textContent = 'On Progress'
+        read.style.color = 'red'
         myLibrary[parseInt(retriveRead)].read = toggleBook.read
       } else if (myLibrary[parseInt(retriveRead)].read === false) {
         toggleBook.read = true
         read.textContent = 'Finished 100%'
+        read.style.color = 'green'
         myLibrary[parseInt(retriveRead)].read = toggleBook.read
       }
       DisplayingBooks()
@@ -77,8 +79,10 @@ function DisplayingBooks () {
 
     if (myLibrary[i].read === true) {
       read.textContent = 'Finished 100%'
+      read.style.color = 'green'
     } else if (myLibrary[i].read === false) {
       read.textContent = 'On Progress'
+      read.style.color = 'red'
     }
 
     Container.appendChild(title)
@@ -99,7 +103,7 @@ function addBookToLibrary () {
   const Pages = document.getElementById('pages').value
   const Read = document.getElementById('isRead').checked
 
-  if (Title !== '' || Author !== '' || Pages !== '') {
+  if (Title !== '' && Author !== '' && Pages !== '') {
     myLibrary.push(new Book(Title, Author, Pages, Read))
     FormContainer.style.display = 'none'
   } else {

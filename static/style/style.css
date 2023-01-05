@@ -17,10 +17,14 @@ h3{
 .Book-Containers-Box{
     display: flex;
     gap: 2rem;
-    align-items: center;
+    
+    
 }
 
 #add-new{
+    
+
+    
     width: 200px;
     height: 280px;
     font-size: 95px;
@@ -116,12 +120,13 @@ h3{
     display: flex;
     gap: 1.8rem;
     align-items: center;
+    flex-wrap: wrap;
     
 }
 
 .card{
     position: relative;
-    background-color: aqua;
+    background-color: blueviolet;
     width: 210px;
     height: 320px;
     display: flex;
@@ -179,5 +184,7 @@ h3{
 
 }
 .read-of-book-collection{
-    
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
 }
