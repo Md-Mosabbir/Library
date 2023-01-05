@@ -27,50 +27,68 @@ function DisplayingBooks () {
 
   let index = 0
   // eslint-disable-next-line no-lone-blocks
-  {
-    for (let i = 0; i < myLibrary.length; i++) {
-      const Container = document.createElement('div')
-      Container.classList.add('card')
-      const title = document.createElement('h1')
-      title.classList.add('h1-of-book-collection')
-      const author = document.createElement('h3')
-      author.classList.add('h3-of-book-collection')
-      const pages = document.createElement('p')
-      pages.classList.add('p-of-book-collection')
-      const read = document.createElement('input')
-      read.classList.add('read-of-book-collection')
-      read.setAttribute('type', 'checkbox')
-      const removeBookButton = document.createElement('button')
-      removeBookButton.classList.add('remove-button')
-      removeBookButton.textContent = 'x'
-      removeBookButton.dataset.ArrayIndex = index
-      index++
-      removeBookButton.addEventListener('click', removeFunction)
 
-      function removeFunction () {
-        const retriveIndex = removeBookButton.dataset.ArrayIndex
-        myLibrary.splice(parseInt(retriveIndex), 1)
-        Container.remove()
-        DisplayingBooks()
+  for (let i = 0; i < myLibrary.length; i++) {
+    const Container = document.createElement('div')
+    Container.classList.add('card')
+    const title = document.createElement('h1')
+    title.classList.add('h1-of-book-collection')
+    const author = document.createElement('h3')
+    author.classList.add('h3-of-book-collection')
+    const pages = document.createElement('p')
+    pages.classList.add('p-of-book-collection')
+    const read = document.createElement('button')
+    read.classList.add('read-of-book-collection')
+    read.textContent = ''
+    const removeBookButton = document.createElement('button')
+    removeBookButton.classList.add('remove-button')
+    removeBookButton.textContent = 'x'
+    removeBookButton.dataset.ArrayIndex = index
+    read.dataset.ArrayIndex = index
+    removeBookButton.addEventListener('click', removeFunction)
+    read.addEventListener('click', toggleReadStatus)
+
+    function toggleReadStatus () {
+      const retriveRead = read.dataset.ArrayIndex
+      const toggleBook = new Book()
+
+      if (myLibrary[parseInt(retriveRead)].read === true) {
+        toggleBook.read = false
+        read.textContent = 'On Progress'
+        myLibrary[parseInt(retriveRead)].read = toggleBook.read
+      } else if (myLibrary[parseInt(retriveRead)].read === false) {
+        toggleBook.read = true
+        read.textContent = 'Finished 100%'
+        myLibrary[parseInt(retriveRead)].read = toggleBook.read
       }
-
-      title.textContent += myLibrary[i].title
-      author.textContent += myLibrary[i].author
-      pages.textContent += myLibrary[i].pages
-      // eslint-disable-next-line no-cond-assign, no-constant-condition
-      if (myLibrary[i].read = true) {
-        // eslint-disable-next-line no-unused-expressions
-        read.checked = true
-      }
-
-      Container.appendChild(title)
-      Container.appendChild(author)
-      Container.appendChild(pages)
-      Container.appendChild(read)
-      Container.appendChild(removeBookButton)
-
-      Display.appendChild(Container)
+      DisplayingBooks()
     }
+
+    function removeFunction () {
+      const retriveIndex = removeBookButton.dataset.ArrayIndex
+      myLibrary.splice(parseInt(retriveIndex), 1)
+      Container.remove()
+      DisplayingBooks()
+    }
+
+    title.textContent += myLibrary[i].title
+    author.textContent += myLibrary[i].author
+    pages.textContent += myLibrary[i].pages
+
+    if (myLibrary[i].read === true) {
+      read.textContent = 'Finished 100%'
+    } else if (myLibrary[i].read === false) {
+      read.textContent = 'On Progress'
+    }
+
+    Container.appendChild(title)
+    Container.appendChild(author)
+    Container.appendChild(pages)
+    Container.appendChild(read)
+    Container.appendChild(removeBookButton)
+
+    Display.appendChild(Container)
+    index++
   }
 }
 
@@ -83,7 +101,6 @@ function addBookToLibrary () {
 
   if (Title !== '' || Author !== '' || Pages !== '') {
     myLibrary.push(new Book(Title, Author, Pages, Read))
-
     FormContainer.style.display = 'none'
   } else {
     console.log('No!')
