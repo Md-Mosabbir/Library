@@ -12,9 +12,7 @@ h3{
     font-size: 30px;
 
 }
-body{
-    
-}
+
 
 .Book-Containers-Box{
     display: flex;
@@ -122,6 +120,7 @@ body{
 }
 
 .card{
+    position: relative;
     background-color: aqua;
     width: 210px;
     height: 320px;
@@ -147,9 +146,35 @@ body{
 
 
 .p-of-book-collection{
-    display: none;
+
+    
 }
 
 .read-of-book-collection{
-    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(0, 120%);
+    
+    
+}
+
+.remove-button{
+    color: white;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(-70%);
+    transition: 0.3s all;
+}
+
+.remove-button:hover{
+    color: red;
+    scale: 1.05;
+    cursor: pointer;
+
 }

@@ -25,6 +25,7 @@ function DisplayingBooks () {
     removeDivs[i].remove()
   }
 
+  let index = 0
   // eslint-disable-next-line no-lone-blocks
   {
     for (let i = 0; i < myLibrary.length; i++) {
@@ -39,6 +40,19 @@ function DisplayingBooks () {
       const read = document.createElement('input')
       read.classList.add('read-of-book-collection')
       read.setAttribute('type', 'checkbox')
+      const removeBookButton = document.createElement('button')
+      removeBookButton.classList.add('remove-button')
+      removeBookButton.textContent = 'x'
+      removeBookButton.dataset.ArrayIndex = index
+      index++
+      removeBookButton.addEventListener('click', removeFunction)
+
+      function removeFunction () {
+        const retriveIndex = removeBookButton.dataset.ArrayIndex
+        myLibrary.splice(parseInt(retriveIndex), 1)
+        Container.remove()
+        DisplayingBooks()
+      }
 
       title.textContent += myLibrary[i].title
       author.textContent += myLibrary[i].author
@@ -53,6 +67,7 @@ function DisplayingBooks () {
       Container.appendChild(author)
       Container.appendChild(pages)
       Container.appendChild(read)
+      Container.appendChild(removeBookButton)
 
       Display.appendChild(Container)
     }
