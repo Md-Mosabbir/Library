@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -11,22 +15,61 @@ input{
 h3{
     font-size: 30px;
 
+
 }
+
+.Header{
+    font-family: 'Poppins', sans-serif;;
+    width: 100%;
+    height: 80px;
+    padding: 15px;
+    background-color: hsl(155, 100%, 50%);
+    
+    
+}
+
+.cancel-form{
+    color: white;
+    border: none;
+    background-color: blue;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+    font-size: 30px;
+    transition: 0.3s all;
+
+}
+
+
+
+
+.cancel-form:hover{
+    background-color: #fff;
+    color: red;
+    cursor: pointer;
+
+}
+
+.Header h1{
+    text-align: center;
+
+}
+
 
 
 .Book-Containers-Box{
     display: flex;
     gap: 2rem;
+    padding-top: 20px;
     
     
 }
 
 #add-new{
-    
-
-    
     width: 200px;
     height: 280px;
+    margin: 10px;
     font-size: 95px;
     border: none;
     border-radius: 10px;
@@ -50,17 +93,14 @@ h3{
 
 }
 #book{
+    font-family: 'Poppins', sans-serif;
     
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-
-
-    
-
+    transform: translate(-50%,-70%);
     width: 340px;
-    height: 400px;
+    height: 500px;
     padding: 18px;
     background-color: hsl(180, 100%, 38%);
     text-align: center;
@@ -125,6 +165,7 @@ h3{
 }
 
 .card{
+    font-family: 'Roboto', sans-serif;
     position: relative;
     background-color: blueviolet;
     width: 210px;
@@ -139,7 +180,8 @@ h3{
 }
 
 .h1-of-book-collection{
-    font-size: 25px;
+    font-size: 17px;
+
     
 
 

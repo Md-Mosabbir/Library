@@ -3,9 +3,13 @@ const Display = document.querySelector('.display')
 const FormContainer = document.querySelector('.form-container')
 const AddingNewBook = document.getElementById('add-new')
 const Form = document.getElementById('addBooks')
+const CancelForm = document.querySelector('.cancel-form')
 // Hiding the input--
-
 FormContainer.style.display = 'none'
+CancelForm.addEventListener('click', () => {
+  FormContainer.style.display = 'none'
+})
+
 AddingNewBook.addEventListener('click', () => {
   FormContainer.style.display = 'block'
 })
