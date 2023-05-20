@@ -18,7 +18,11 @@ const CancelForm = document.querySelector('.cancel-form')
 FormContainer.style.display = 'none'
 
 CancelForm.addEventListener('click', () => {
-  FormContainer.style.display = 'none'
+  document.getElementById('book').style.animation = 'form-close 0.3s ease forwards'
+  setTimeout(function () {
+    FormContainer.style.display = 'none'
+    document.getElementById('book').style.animation = ''
+  }, 300)
 })
 
 AddingNewBook.addEventListener('click', () => {
@@ -115,7 +119,11 @@ function addBookToLibrary () {
 
   if (Title !== '' && Author !== '' && Pages !== '') {
     myLibrary.push(new Book(Title, Author, Math.abs(parseInt(Pages)), Read))
-    FormContainer.style.display = 'none'
+    document.getElementById('book').style.animation = 'form-close 0.3s ease forwards'
+    setTimeout(function () {
+      FormContainer.style.display = 'none'
+      document.getElementById('book').style.animation = ''
+    }, 300)
     errorMessage.textContent = ''
   } else {
     FormContainer.classList.add('shake')
