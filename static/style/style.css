@@ -55,7 +55,7 @@ h3{
   .cancel-form:after {
     content: "";
     position: absolute;
-    width: 2px;
+    width: 3px;
     height: 100%;
   
     background-color: white;
