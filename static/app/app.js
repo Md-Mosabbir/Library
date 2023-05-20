@@ -1,20 +1,4 @@
-const myLibrary = []
-const Display = document.querySelector('.display')
-const FormContainer = document.querySelector('.form-container')
-const AddingNewBook = document.getElementById('add-new')
-const Form = document.getElementById('addBooks')
-const CancelForm = document.querySelector('.cancel-form')
-// Hiding the input--
-FormContainer.style.display = 'none'
-CancelForm.addEventListener('click', () => {
-  FormContainer.style.display = 'none'
-})
-
-AddingNewBook.addEventListener('click', () => {
-  FormContainer.style.display = 'block'
-})
-// --
-
+// class for the blueprint of Books in library
 class Book {
   constructor (title, author, pages, read) {
     this.title = title
@@ -23,7 +7,25 @@ class Book {
     this.read = read
   }
 }
-// Displays Book
+
+const myLibrary = []
+const Display = document.querySelector('.display')
+const FormContainer = document.querySelector('.form-container')
+const AddingNewBook = document.getElementById('add-new')
+const Form = document.getElementById('addBooks')
+const CancelForm = document.querySelector('.cancel-form')
+
+FormContainer.style.display = 'none'
+
+CancelForm.addEventListener('click', () => {
+  FormContainer.style.display = 'none'
+})
+
+AddingNewBook.addEventListener('click', () => {
+  FormContainer.style.display = 'block'
+})
+
+// Function for adding new book
 
 function DisplayingBooks () {
   const removeDivs = document.querySelectorAll('.card')
@@ -34,6 +36,7 @@ function DisplayingBooks () {
   let index = 0
   // eslint-disable-next-line no-lone-blocks
 
+  // Creation of the card with index number
   for (let i = 0; i < myLibrary.length; i++) {
     const Container = document.createElement('div')
     Container.classList.add('card')
@@ -108,13 +111,19 @@ function addBookToLibrary () {
   const Author = document.getElementById('author').value
   const Pages = document.getElementById('pages').value
   const Read = document.getElementById('isRead').checked
+  const errorMessage = document.getElementById('errorMessage')
 
   if (Title !== '' && Author !== '' && Pages !== '') {
     myLibrary.push(new Book(Title, Author, Pages, Read))
     FormContainer.style.display = 'none'
+    errorMessage.textContent = ''
   } else {
-    console.log('No!')
+    FormContainer.classList.add('shake')
+    errorMessage.textContent = 'Please fill in the form.'
   }
+  FormContainer.addEventListener('animationend', function () {
+    this.classList.remove('shake')
+  })
 }
 
 const Submit = document.querySelector('.submit')
