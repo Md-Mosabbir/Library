@@ -114,7 +114,7 @@ function addBookToLibrary () {
   const errorMessage = document.getElementById('errorMessage')
 
   if (Title !== '' && Author !== '' && Pages !== '') {
-    myLibrary.push(new Book(Title, Author, Pages, Read))
+    myLibrary.push(new Book(Title, Author, Math.abs(parseInt(Pages)), Read))
     FormContainer.style.display = 'none'
     errorMessage.textContent = ''
   } else {
