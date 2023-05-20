@@ -29,28 +29,64 @@ h3{
 }
 
 .cancel-form{
-    color: white;
+
+    background: transparent;
+
     border: none;
-    background-color: blue;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
     
-    font-size: 30px;
+
+    
+ 
+    position: relative;
+
     transition: 0.3s all;
+    transition: transform 0.3s ease;
 
 }
 
+  .cancel-form:before,
+  .cancel-form:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+  
+    background-color: white;
+    transition: transform 0.5s ease, background-color 0.3s ease;
+  }
+  
+  .cancel-form:before {
+    transform: rotate(45deg);
+  }
+  
+  .cancel-form:after {
+    transform: rotate(-45deg);
+  }
 
 
 
-.cancel-form:hover{
-    background-color: #fff;
-    color: red;
-    cursor: pointer;
-
-}
-
+  .cancel-form:hover {
+    transform: scale(1.2) ;
+  }
+  
+  .cancel-form:hover:before,
+  .cancel-form:hover:after {
+    background-color: red;
+  }
+  .cancel-form:hover::before{
+    transform:rotate(135deg)
+  }
+  .cancel-form:hover::after{
+    transform:rotate(225deg)
+  }
+  
 .Header h1{
     text-align: center;
 
